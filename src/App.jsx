@@ -64,7 +64,11 @@ export function App() {
     return () => window.clearTimeout(timeoutId);
   }, [cartToast]);
 
-  const handleNavigate = (page) => {
+  const handleNavigate = (page, category) => {
+    if (page === 'shop' && category && category !== 'All') {
+      navigate(`/shop?category=${encodeURIComponent(category)}`);
+      return;
+    }
     navigate(pagePaths[page] ?? '/');
   };
 

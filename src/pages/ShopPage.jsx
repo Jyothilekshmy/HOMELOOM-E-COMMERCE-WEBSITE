@@ -1,10 +1,17 @@
 import React, { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ProductFilter } from '../widgets/shop/ProductFilter';
 import { ProductGrid } from '../widgets/shop/ProductGrid';
 import { Input } from '../components/ui/Input';
 
 export function ShopPage({ products = [], onSelectProduct, onAddToCart }) {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchParams] = useSearchParams();
+  const requestedCategory = searchParams.get('category');
+  const [selectedCategory, setSelectedCategory] = useState(() =>
+    products.some((product) => product.category === requestedCategory)
+      ? requestedCategory
+      : 'All'
+  );
   const [sortOption, setSortOption] = useState('featured');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -68,7 +75,6 @@ export function ShopPage({ products = [], onSelectProduct, onAddToCart }) {
           />
         </div>
       </div>
-
       {/* Filter and Sort Widget */}
       <ProductFilter
         categories={categories}
@@ -77,7 +83,6 @@ export function ShopPage({ products = [], onSelectProduct, onAddToCart }) {
         sortOption={sortOption}
         onSortChange={setSortOption}
       />
-
       {/* Product Grid Widget */}
       <ProductGrid
         products={filteredProducts}

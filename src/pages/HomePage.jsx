@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { HeroBanner } from '../widgets/home/HeroBanner';
 import { NewsletterSection } from '../widgets/home/NewsletterSection';
 import { ProductCard } from '../widgets/common/ProductCard';
@@ -10,11 +10,25 @@ import { decorCategories, furnitureCategories,} from '../data/products';
 export function HomePage({ products = [], onNavigate, onSelectProduct, onAddToCart }) {
   // Show top 3 trending products
   const trendingProducts = products.slice(0, 3);
+  const categories = useMemo(
+    () => Array.from(new Set(products.map((product) => product.category))),
+    [products]
+  );
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const handleSelectCategory = () => onNavigate?.('shop');
+  const handleHeroCategorySelect = (category) => {
+    setSelectedCategory(category);
+    onNavigate?.('shop', category);
+  };
   return (
     <div className="space-y-12">
       {/* Hero Banner Widget */}
-      <HeroBanner onExplore={onNavigate} />
+      <HeroBanner
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onSelectCategory={handleHeroCategorySelect}
+        onExplore={onNavigate}
+      />
       <MovingCarousel
         onSelectProduct={onSelectProduct}
         onAddToCart={onAddToCart}
@@ -27,7 +41,6 @@ export function HomePage({ products = [], onNavigate, onSelectProduct, onAddToCa
         categories={furnitureCategories}
         onSelectCategory={handleSelectCategory}
       />
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10 text-center">
         <h2 className="text-2xl font-bold text-green-950 sm:text-3xl lg:text-5xl">
           Home Decors Collections
@@ -69,7 +82,6 @@ export function HomePage({ products = [], onNavigate, onSelectProduct, onAddToCa
             <span className="text-lg font-bold  text-amber-800">
               Shop Now, Get 10% Off
             </span>
-           
           </div>
           <Button
             variant="accent"
@@ -79,7 +91,6 @@ export function HomePage({ products = [], onNavigate, onSelectProduct, onAddToCa
             Browse All {products.length} Products &rarr;
           </Button>
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {trendingProducts.map((product) => (
             <ProductCard
@@ -91,7 +102,6 @@ export function HomePage({ products = [], onNavigate, onSelectProduct, onAddToCa
           ))}
         </div>
       </section>
-
       {/* Newsletter Section Widget */}
       <NewsletterSection />
     </div>

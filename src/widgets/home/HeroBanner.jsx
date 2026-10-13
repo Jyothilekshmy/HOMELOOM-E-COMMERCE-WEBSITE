@@ -1,6 +1,15 @@
 import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
-export function HeroBanner({ onExplore }) {
+import { ProductFilter } from '../shop/ProductFilter';
+
+export function HeroBanner({
+  categories = [],
+  selectedCategory = 'All',
+  onSelectCategory,
+  onExplore,
+  filterSelectedButtonClassName = '!bg-amber-800 !text-white hover:!bg-amber-900 focus:!ring-amber-500',
+  filterUnselectedButtonClassName = '!text-white hover:!bg-white/20 hover:!text-white focus:!ring-white',
+}) {
   return (
     <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-stone-900 text-white mt-0 mb-4 shadow-2xl">
       {/* Background with artistic gradient overlay */}
@@ -16,8 +25,18 @@ export function HeroBanner({ onExplore }) {
         />
         <div className="absolute inset-0 bg-linear-to-r from-black/80 to-transparent"></div>
       </div>
-      <div className="relative z-10 mx-auto flex min-h-105 max-w-7xl flex-col items-start justify-center px-5 py-16 sm:min-h-160 sm:px-8 sm:py-20 lg:min-h-173 lg:px-8 lg:py-24">
-        <div className="flex max-w-3xl flex-col items-start gap-5 sm:gap-6">
+      <div className="relative z-10 mx-auto flex min-h-105 max-w-7xl flex-col items-start justify-start px-5 pt-24 pb-16 sm:min-h-160 sm:px-8 sm:pt-28 sm:pb-20 lg:min-h-173 lg:px-8 lg:pt-32 lg:pb-24">
+        <div className="flex w-full max-w-3xl flex-col items-start gap-5 sm:gap-6">
+          <div className="w-full -mt-8 bg-transparent">
+            <ProductFilter
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={onSelectCategory}
+              selectedButtonClassName={filterSelectedButtonClassName}
+              unselectedButtonClassName={filterUnselectedButtonClassName}
+              showSort={false}
+            />
+          </div>
           <Badge variant="new" size="md">
             Home Decors & Furnitures
           </Badge>

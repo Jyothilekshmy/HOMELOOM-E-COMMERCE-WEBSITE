@@ -32,7 +32,6 @@ export function Navbar({ activePage = 'home', onNavigate, cartCount = 0, overlay
     { id: 'shop', label: 'Shop ' },
     { id: 'details', label: 'Products' },
     { id: 'cart', label: 'Cart' },
-    { id: 'checkout', label: 'Checkout' },
     { id: 'contact', label: 'Contact' },
 
   ];

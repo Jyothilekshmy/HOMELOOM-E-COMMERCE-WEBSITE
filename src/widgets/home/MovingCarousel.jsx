@@ -5,42 +5,42 @@ const defaultCarouselProducts = [
     {
         id: 'p1',
         name: 'Artisan Loom Handwoven Throw',
-        image: 'public/assets/home/furniture-collections-1.webp'
+        image: 'Assets/home/furniture-collections-1.webp'
     },
     {
         id: 'mc-1',
         name: 'The Comfort Oak Armchair',
-        image: 'public/assets/home/furniture-collections-2.webp',
+        image: 'Assets/home/furniture-collections-2.webp',
     },
     {
         id: 'p2',
         name: 'Terracotta Ceramic Floral Vase',
-        image: 'public/assets/home/furniture-collections-3.webp',
+        image: 'Assets/home/furniture-collections-3.webp',
     },
     {
         id: 'mc-2',
         name: 'Modern Olive Lounge Sofa',
-        image: 'public/assets/home/furniture-collections-4.webp',
+        image: 'Assets/home/furniture-collections-4.webp',
     },
     {
         id: 'p3',
         name: 'Belgian Washed Linen Duvet Set',
-        image: 'public/assets/home/furniture-collections-5.webp',
+        image: 'Assets/home/furniture-collections-5.webp',
     },
     {
         id: 'mc-3',
         name: 'Minimal Oak Low Table',
-        image: 'public/assets/home/furniture-collections-6.webp',
+        image: 'Assets/home/furniture-collections-6.webp',
     },
     {
         id: 'p4',
         name: 'Heritage Jute & Wool Runner',
-        image: 'public/assets/home/furniture-collections-7.webp'
+        image: 'Assets/home/furniture-collections-7.webp'
     },
     {
         id: 'mc-4',
         name: 'Sculptural Woven Pendant',
-        image: 'public/assets/home/furniture-collections-8.webp',
+        image: 'Assets/home/furniture-collections-8.webp',
     },
 ];
 

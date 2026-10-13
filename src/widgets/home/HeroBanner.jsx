@@ -1,0 +1,52 @@
+import { Button } from '../../components/ui/Button';
+import { Badge } from '../../components/ui/Badge';
+export function HeroBanner({ onExplore }) {
+  return (
+    <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-stone-900 text-white mt-0 mb-4 shadow-2xl">
+      {/* Background with artistic gradient overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/Assets/home/hero-banner-4.webp"
+          alt="Artisanal home interior"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = '/assets/home/hero-banner1.jpg';
+          }}
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 to-transparent"></div>
+      </div>
+      <div className="relative z-10 mx-auto flex min-h-105 max-w-7xl flex-col items-start justify-center px-5 py-16 sm:min-h-160 sm:px-8 sm:py-20 lg:min-h-173 lg:px-8 lg:py-24">
+        <div className="flex max-w-3xl flex-col items-start gap-5 sm:gap-6">
+          <Badge variant="new" size="md">
+            Home Decors & Furnitures
+          </Badge>
+          <h1 className="text-4xl leading-[1.15] font-serif tracking-tight text-stone-50 sm:text-5xl lg:text-6xl">
+            Homeloom <br />
+            <span className="font-serif text-white">
+              Where every corner feels like home.</span>
+          </h1>
+          <div className="flex flex-wrap gap-3 pt-2 sm:gap-4">
+            <Button
+              size="lg"
+              variant="Primary"
+              onClick={() => onExplore && onExplore('shop')}
+            >
+              Explore Collections
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-black border-stone-500 hover:bg-white/10 bg-white"
+              onClick={() => onExplore && onExplore('details')}
+            >
+              Shop Now
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default HeroBanner;

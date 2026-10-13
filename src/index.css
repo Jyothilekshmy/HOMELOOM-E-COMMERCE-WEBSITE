@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, Cambria, serif;
+  }
+}
+
+@keyframes home-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-home-marquee {
+  animation: home-marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-home-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-home-marquee {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+@keyframes decor-marquee {
+  0%,
+  20% {
+    transform: translateX(0);
+  }
+
+  25%,
+  45% {
+    transform: translateX(-12.5%);
+  }
+
+  50%,
+  70% {
+    transform: translateX(-25%);
+  }
+
+  75%,
+  95% {
+    transform: translateX(-37.5%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-decor-marquee {
+  animation: decor-marquee 15s linear infinite;
+}
+
+.animate-decor-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-decor-marquee {
+    animation: none;
+  }
+}

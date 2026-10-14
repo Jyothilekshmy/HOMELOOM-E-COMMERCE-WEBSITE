@@ -185,9 +185,7 @@ export function App() {
           type="button"
           aria-label="Back to top"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className={`fixed right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-green-950 text-white shadow-lg transition-colors hover:bg-amber-900 focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${
-            cartToast ? 'bottom-24' : 'bottom-6'
-          }`}
+          className="fixed right-6 bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-green-950 text-white shadow-lg transition-colors hover:bg-amber-900 focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
         >
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6">
             <path
@@ -206,9 +204,9 @@ export function App() {
           role="status"
           aria-live="polite"
           aria-atomic="true"
-          className="fixed bottom-6 right-6 z-50 flex max-w-sm items-center gap-3 rounded-xl border border-emerald-200 bg-white px-4 py-3 shadow-lg"
+          className="fixed bottom-6 right-6 z-50 flex max-w-sm items-center gap-3 rounded-xl border border-emerald-200 bg-gray-950 px-4 py-2.5 shadow-lg"
         >
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-800">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-800">
             <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-5 w-5">
               <path
                 d="m5 10 3.2 3.2L15 6.5"
@@ -219,9 +217,8 @@ export function App() {
               />
             </svg>
           </span>
-          <p className="flex-1 text-sm font-medium text-stone-800">
-            Added {cartToast.quantity > 1 ? `${cartToast.quantity} × ` : ''}
-            {cartToast.productName} to your cart
+          <p className="flex-1 text-sm font-medium text-amber-100">
+             Item added to cart
           </p>
           <button
             type="button"

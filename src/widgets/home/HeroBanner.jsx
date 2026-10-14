@@ -55,8 +55,7 @@ export function HeroBanner({
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-black border-stone-500 hover:bg-white/10 bg-white"
+              variant="accent"
               onClick={() => onExplore && onExplore('details')}
             >
               Shop Now

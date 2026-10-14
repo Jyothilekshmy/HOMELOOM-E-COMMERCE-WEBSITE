@@ -77,7 +77,7 @@ export function Footer() {
           <div className="flex gap-2">
             <Input
               placeholder="Enter your email"
-              className="bg-stone-800 border-stone-700 text-stone-100 placeholder:text-stone-500"
+              className="bg-stone-800 border-stone-700 text-stone-900 placeholder:text-stone-400"
             />
             <Button variant="primary" className="shrink-0">
               Join

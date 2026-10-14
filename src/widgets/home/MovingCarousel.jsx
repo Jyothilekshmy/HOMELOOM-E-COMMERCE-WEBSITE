@@ -43,17 +43,14 @@ const defaultCarouselProducts = [
         image: 'Assets/home/furniture-collections-8.webp',
     },
 ];
-
 export function MovingCarousel({ items, onNavigate }) {
     const displayProducts =
         items && items.length > 0 ? items : defaultCarouselProducts;
 
     // Duplicate images to create a continuous loop.
     const duplicatedProducts = [...displayProducts, ...displayProducts];
-
     return (
-        <section className="relative w-full overflow-hidden  py-10 sm:py-14 lg:py-16">
-
+        <section className="relative w-full overflow-hidden  pt-8 sm:pt-14 sm:pb-2 lg:pt-8 lg:pb-2">
             {/* Single Heading */}
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10 text-center">
                 <h2 className="text-2xl font-bold text-green-950 sm:text-3xl lg:text-5xl">
@@ -61,7 +58,6 @@ export function MovingCarousel({ items, onNavigate }) {
                 </h2>
                 <p className="text-[16px] text center text-b">Discover thoughtfully designed furnitures for living</p>
             </div>
-
             {/* Carousel Viewport */}
             <div className="relative w-full overflow-hidden">
 
@@ -102,11 +98,9 @@ export function MovingCarousel({ items, onNavigate }) {
                             </div>
                         </div>
                     ))}
-
                 </div>
             </div>
         </section>
     );
 }
-
 export default MovingCarousel;

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+
 export function Navbar({ activePage = 'home', onNavigate, cartCount = 0, overlay = false }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     if (!isMobileMenuOpen) return undefined;
+
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') setIsMobileMenuOpen(false);
     };
@@ -12,8 +16,10 @@ export function Navbar({ activePage = 'home', onNavigate, cartCount = 0, overlay
     const handleBreakpointChange = (event) => {
       if (event.matches) setIsMobileMenuOpen(false);
     };
+
     document.addEventListener('keydown', handleKeyDown);
     desktopMediaQuery.addEventListener('change', handleBreakpointChange);
+
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);

@@ -179,7 +179,6 @@ export function App() {
 
       {/* Common Footer */}
       <Footer />
-
       {showBackToTop && (
         <button
           type="button"

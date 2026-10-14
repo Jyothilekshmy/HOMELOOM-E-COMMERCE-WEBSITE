@@ -10,6 +10,7 @@ export function Input({
   placeholder,
   value,
   onChange,
+  required,
   ...props
 }) {
   const inputId = id || (label ? label.toLowerCase().replace(/\s+/g, '-') : undefined);
@@ -19,6 +20,7 @@ export function Input({
       {label && (
         <label htmlFor={inputId} className="text-xs font-semibold uppercase tracking-wider text-stone-600">
           {label}
+          {required && <span className="ml-1 text-red-500">*</span>}
         </label>
       )}
       <div className="relative flex items-center">
@@ -33,6 +35,7 @@ export function Input({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          required={required}
           className={`w-full rounded-xl border border-stone-200 bg-stone-50/50 px-4 py-2.5 text-sm text-stone-900 transition-all duration-200 placeholder:text-stone-400 focus:border-amber-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 ${
             Icon ? 'pl-10' : ''
           } ${error ? 'border-red-400 focus:border-red-500 focus:ring-red-400/20' : ''} ${className}`}

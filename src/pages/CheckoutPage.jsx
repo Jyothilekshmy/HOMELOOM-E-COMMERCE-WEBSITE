@@ -46,7 +46,6 @@ export function CheckoutPage({ cartItems = [], onReturnHome }) {
           <h3 className="text-base font-semibold text-stone-900">Contact & Shipping Details</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="First Name" required placeholder="Eleanor" />
-            <Input label="Last Name" required placeholder="Vance" />
           </div>
           <Input label="Email Address" type="email" required placeholder="eleanor@example.com" />
           <Input label="Street Address" required placeholder="142 Loom Avenue, Suite 4" />

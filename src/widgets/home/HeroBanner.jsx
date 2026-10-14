@@ -28,14 +28,6 @@ export function HeroBanner({
       <div className="relative z-10 mx-auto flex min-h-105 max-w-7xl flex-col items-start justify-start px-5 pt-24 pb-16 sm:min-h-160 sm:px-8 sm:pt-28 sm:pb-20 lg:min-h-173 lg:px-8 lg:pt-32 lg:pb-24">
         <div className="flex w-full max-w-3xl flex-col items-start gap-5 sm:gap-6">
           <div className="w-full -mt-8 bg-transparent">
-            <ProductFilter
-              categories={categories}
-              selectedCategory={selectedCategory}
-              onSelectCategory={onSelectCategory}
-              selectedButtonClassName={filterSelectedButtonClassName}
-              unselectedButtonClassName={filterUnselectedButtonClassName}
-              showSort={false}
-            />
           </div>
           <Badge variant="new" size="md">
             Home Decors & Furnitures

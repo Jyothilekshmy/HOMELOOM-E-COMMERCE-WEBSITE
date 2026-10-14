@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
 export function Navbar({ activePage = 'home', onNavigate, cartCount = 0, overlay = false }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   useEffect(() => {
     if (!isMobileMenuOpen) return undefined;
-
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') setIsMobileMenuOpen(false);
     };
@@ -16,10 +12,8 @@ export function Navbar({ activePage = 'home', onNavigate, cartCount = 0, overlay
     const handleBreakpointChange = (event) => {
       if (event.matches) setIsMobileMenuOpen(false);
     };
-
     document.addEventListener('keydown', handleKeyDown);
     desktopMediaQuery.addEventListener('change', handleBreakpointChange);
-
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);
@@ -142,61 +136,61 @@ export function Navbar({ activePage = 'home', onNavigate, cartCount = 0, overlay
               </button>
             </div>
           </div>
-          {/* Mobile Navigation Drawer */}
-          <button
-            type="button"
-            aria-label="Close navigation menu"
-            tabIndex={isMobileMenuOpen ? 0 : -1}
-            aria-hidden={!isMobileMenuOpen}
-            inert={!isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`fixed inset-0 z-55 bg-black/50 transition-opacity duration-350 ease-in-out md:hidden ${
-              isMobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-            }`}
-          />
-          <nav
-            id="mobile-navigation"
-            aria-label="Mobile navigation"
-            aria-hidden={!isMobileMenuOpen}
-            inert={!isMobileMenuOpen}
-            className={`fixed inset-y-0 right-0 z-60 flex h-dvh w-[min(20rem,85vw)] flex-col gap-2 bg-stone-50 p-5 shadow-2xl transition-transform duration-350 ease-in-out md:hidden ${
-              isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
-          >
-            <div className="mb-3 flex items-center justify-between border-b border-stone-200 pb-4">
-              <span className="font-serif text-lg font-bold tracking-tight text-stone-900">
-                HOMELOOM
-              </span>
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-lg p-2 text-stone-700 transition-colors hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-700"
-                aria-label="Close navigation menu"
-              >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => {
-                  if (onNavigate) onNavigate(link.id);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors ${
-                  activePage === link.id
-                    ? 'bg-amber-50 text-amber-800 font-semibold'
-                    : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
-                }`}
-              >
-                  {link.label}
-              </button>
-            ))}
-          </nav>
         </div>
       </header>
+      {/* Keep fixed mobile navigation outside the sticky, backdrop-blurred header. */}
+      <button
+        type="button"
+        aria-label="Close navigation menu"
+        tabIndex={isMobileMenuOpen ? 0 : -1}
+        aria-hidden={!isMobileMenuOpen}
+        inert={!isMobileMenuOpen}
+        onClick={() => setIsMobileMenuOpen(false)}
+        className={`fixed inset-0 z-55 bg-black/50 transition-opacity duration-350 ease-in-out md:hidden ${
+          isMobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      />
+      <nav
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!isMobileMenuOpen}
+        inert={!isMobileMenuOpen}
+        className={`fixed inset-y-0 right-0 z-60 flex h-dvh w-[min(20rem,85vw)] flex-col gap-2 bg-stone-50 p-5 shadow-2xl transition-transform duration-350 ease-in-out md:hidden ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="mb-3 flex items-center justify-between border-b border-stone-200 pb-4">
+          <span className="font-serif text-lg font-bold tracking-tight text-stone-900">
+            HOMELOOM
+          </span>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="rounded-lg p-2 text-stone-700 transition-colors hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-700"
+            aria-label="Close navigation menu"
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        {navLinks.map((link) => (
+          <button
+            key={link.id}
+            onClick={() => {
+              if (onNavigate) onNavigate(link.id);
+              setIsMobileMenuOpen(false);
+            }}
+            className={`rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors ${
+              activePage === link.id
+                ? 'bg-amber-50 text-amber-800 font-semibold'
+                : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+            }`}
+          >
+            {link.label}
+          </button>
+        ))}
+      </nav>
     </>
   );
 }

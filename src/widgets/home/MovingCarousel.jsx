@@ -50,7 +50,7 @@ export function MovingCarousel({ items, onNavigate }) {
     // Duplicate images to create a continuous loop.
     const duplicatedProducts = [...displayProducts, ...displayProducts];
     return (
-        <section className="relative w-full overflow-hidden  pt-8 sm:pt-14 sm:pb-2 lg:pt-8 lg:pb-2">
+        <section className="relative w-full overflow-hidden  pt-8 pb-1 sm:pt-14 sm:pb-1 lg:pt-8 lg:pb-1">
             {/* Single Heading */}
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10 text-center">
                 <h2 className="text-2xl font-bold text-green-950 sm:text-3xl lg:text-5xl">

@@ -1,14 +1,8 @@
 import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
-import { ProductFilter } from '../shop/ProductFilter';
 
 export function HeroBanner({
-  categories = [],
-  selectedCategory = 'All',
-  onSelectCategory,
   onExplore,
-  filterSelectedButtonClassName = '!bg-amber-800 !text-white hover:!bg-amber-900 focus:!ring-amber-500',
-  filterUnselectedButtonClassName = '!text-white hover:!bg-white/20 hover:!text-white focus:!ring-white',
 }) {
   return (
     <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-stone-900 text-white mt-0 mb-4 shadow-2xl">

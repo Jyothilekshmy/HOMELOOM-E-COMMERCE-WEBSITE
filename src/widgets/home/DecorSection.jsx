@@ -27,7 +27,6 @@ const decorItems = [
     name: "Ceramic Planter",
     price: "From ₹899",
   },
-  
 ];
 export function DecorSection({ onNavigate }) {
   return (
@@ -111,11 +110,9 @@ export function DecorSection({ onNavigate }) {
             </div>
           ))}
         </div>
-
       </div>
     </div>
     </>
   );
 }
-
 export default DecorSection;
